@@ -4,9 +4,8 @@ volumes:
 
 services:
   db:
-    image: postgres:16.1-alpine
-    env_file: env
+    image: postgres:16.1-bookworm 
     volumes:
       - db_data:/var/lib/postgresql/data
     ports:
-      - "5433:5432"  
+      - "5431:5432"  

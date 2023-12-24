@@ -1,0 +1,9 @@
+class Unit < ApplicationRecord
+  WEIGHT = "weight".freeze
+  VOLUME = "volume".freeze
+  COUNT = "count".freeze
+  UNIT_TYPES = [WEIGHT,VOLUME,COUNT]
+  validates :code, :name, :unit_type, presence:true
+  validates :code, :name, uniqueness:true
+  validates :unit_type, inclusion:{in:UNIT_TYPES}
+end
