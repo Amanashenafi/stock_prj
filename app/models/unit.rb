@@ -1,4 +1,5 @@
 class Unit < ApplicationRecord
+  has_many :stock
   WEIGHT = "weight".freeze
   VOLUME = "volume".freeze
   COUNT = "count".freeze

@@ -10,9 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_21_154039) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_25_130313) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "products", force: :cascade do |t|
+    t.string "code", null: false
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["code"], name: "index_products_on_code", unique: true
+    t.index ["name"], name: "index_products_on_name", unique: true
+  end
+
+  create_table "stocks", force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.bigint "unit_id", null: false
+    t.bigint "store_id", null: false
+    t.float "quantity", default: 0.0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_stocks_on_product_id"
+    t.index ["store_id"], name: "index_stocks_on_store_id"
+    t.index ["unit_id"], name: "index_stocks_on_unit_id"
+  end
+
+  create_table "stores", force: :cascade do |t|
+    t.string "code", null: false
+    t.string "name", null: false
+    t.string "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["address"], name: "index_stores_on_address", unique: true
+    t.index ["code"], name: "index_stores_on_code", unique: true
+    t.index ["name"], name: "index_stores_on_name", unique: true
+  end
 
   create_table "units", force: :cascade do |t|
     t.string "code", null: false
@@ -24,4 +56,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_21_154039) do
     t.index ["name"], name: "index_units_on_name", unique: true
   end
 
+  add_foreign_key "stocks", "products"
+  add_foreign_key "stocks", "stores"
+  add_foreign_key "stocks", "units"
 end
