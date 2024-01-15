@@ -122,7 +122,7 @@ RSpec.describe "sample" do
   it "Should validate that Stock belongs to Store " do
     store = create(:store)
     stock = create(:stock,store:store)
-    expect(stock.store).to equal(store)
+    expect(stock.store).to be_equal(store)
   end
   it "Should validate that Prodcut has many stock" do
     product = create(:product)
@@ -142,6 +142,14 @@ RSpec.describe "sample" do
     stock2 = create(:stock,unit:unit)
     expect(unit.stock).to include(stock1,stock2)
   end
+  product = create(:product)
+  stock = create(:stock,product:product)
+  expect(stock.product).to equal(product)
+
+  prodcut = create(:product)
+  stock1 = create(:stock,product:product)
+  stock2 = create(:stock,prodcut:product)
+  expect(product.stock).to include(stock1,stock2)                                     
 
 
 

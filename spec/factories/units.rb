@@ -5,3 +5,4 @@ FactoryBot.define do
     unit_type { Unit::WEIGHT}
   end
 end
+

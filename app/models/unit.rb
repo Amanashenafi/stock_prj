@@ -7,4 +7,6 @@ class Unit < ApplicationRecord
   validates :code, :name, :unit_type, presence:true
   validates :code, :name, uniqueness:true
   validates :unit_type, inclusion:{in:UNIT_TYPES}
+  #validates :unit_type, inclusion:{in:["weight","volume","count"]}
 end
+

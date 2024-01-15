@@ -68,3 +68,5 @@ class StoresController < ApplicationController
       params.require(:store).permit(:code, :name, :address)
     end
 end
+@store = Store.find(params[:id])
+params.require(:store).permit(:code,:name,:address)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_25_130313) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_15_175917) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -46,6 +46,17 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_25_130313) do
     t.index ["name"], name: "index_stores_on_name", unique: true
   end
 
+  create_table "transactions", force: :cascade do |t|
+    t.date "transaction_date", null: false
+    t.integer "transaction_type", default: 0, null: false
+    t.integer "status", default: 0, null: false
+    t.bigint "stock_id", null: false
+    t.float "quantity", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["stock_id"], name: "stock_on_transaction_index"
+  end
+
   create_table "units", force: :cascade do |t|
     t.string "code", null: false
     t.string "name", null: false
@@ -59,4 +70,5 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_25_130313) do
   add_foreign_key "stocks", "products"
   add_foreign_key "stocks", "stores"
   add_foreign_key "stocks", "units"
+  add_foreign_key "transactions", "stocks"
 end
