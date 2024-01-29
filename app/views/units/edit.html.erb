@@ -1,10 +1,39 @@
-<h1>Editing unit</h1>
+<div class="card col-6">
+  <div class="card-header">
+    <strong> Edit Unit </strong>
+  </div>
+  <div class="card-body">
+    <%= render "form", unit: @unit %>
+  </div>
+</div>
 
-<%= render "form", unit: @unit %>
-
-<br>
+<div id="units", class="continer">
+  <br>
+  <h1>Units</h1>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Code</th>
+        <th>Name</th>
+        <th>Unit Type</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @units.each do |unit| %>
+        <tr>
+          <td><%= unit.code %></td>
+          <td><%= unit.name %></td>
+          <td><%= unit.unit_type %></td>
+          <td>
+            <%= link_to "Show", unit %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <div>
-  <%= link_to "Show this unit", @unit %> |
-  <%= link_to "Back to units", units_path %>
+  <%= link_to "New unit", units_path %>
 </div>

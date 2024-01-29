@@ -18,6 +18,7 @@ class UnitsController < ApplicationController
 
   # GET /units/1/edit
   def edit
+    @units = Unit.all
   end
 
   # POST /units or /units.json
@@ -39,7 +40,7 @@ class UnitsController < ApplicationController
   def update
     respond_to do |format|
       if @unit.update(unit_params)
-        format.html { redirect_to unit_url(@unit), notice: "Unit was successfully updated." }
+        format.html { redirect_to units_path, notice: "Unit was successfully updated." }
         format.json { render :show, status: :ok, location: @unit }
       else
         format.html { render :edit, status: :unprocessable_entity }
