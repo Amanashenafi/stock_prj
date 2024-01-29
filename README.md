@@ -1,24 +1,8 @@
-# README
+# Readme
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# The main branch contains just the state of the app when it was created, all the commits and actual development is in the models branch
 
-Things you may want to cover:
+# Tests can be found in the spec folder on a file named sample_spec.rb(spec/sample_spec.rb)
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
