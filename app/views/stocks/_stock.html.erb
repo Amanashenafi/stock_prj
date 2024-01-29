@@ -1,17 +1,17 @@
 <div id="<%= dom_id stock %>">
   <p>
     <strong>Product:</strong>
-    <%= stock.product_id %>
+    <%= Product.find(stock.product_id).name %>
   </p>
 
   <p>
     <strong>Unit:</strong>
-    <%= stock.unit_id %>
+    <%= Unit.find(stock.unit_id).name %>
   </p>
 
   <p>
     <strong>Store:</strong>
-    <%= stock.store_id %>
+    <%= Store.find(stock.store_id).name %>
   </p>
 
   <p>

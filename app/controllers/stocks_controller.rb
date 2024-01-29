@@ -30,6 +30,7 @@ class StocksController < ApplicationController
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @stock.errors, status: :unprocessable_entity }
+        
       end
     end
   end
@@ -67,4 +68,5 @@ class StocksController < ApplicationController
     def stock_params
       params.require(:stock).permit(:product_id, :unit_id, :store_id, :quantity)
     end
+
 end

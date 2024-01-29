@@ -3,12 +3,28 @@
 <h1>Units</h1>
 
 <div id="units">
-  <% @units.each do |unit| %>
-    <%= render unit %>
-    <p>
-      <%= link_to "Show this unit", unit %>
-    </p>
-  <% end %>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Code</th>
+        <th>Name</th>
+        <th>Unit Type</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @units.each do |unit| %>
+        <tr>
+          <td><%= unit.code %></td>
+          <td><%= unit.name %></td>
+          <td><%= unit.unit_type %></td>
+          <td>
+            <%= link_to "Show", unit %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 
 <%= link_to "New unit", new_unit_path %>

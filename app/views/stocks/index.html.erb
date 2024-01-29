@@ -3,12 +3,31 @@
 <h1>Stocks</h1>
 
 <div id="stocks">
-  <% @stocks.each do |stock| %>
-    <%= render stock %>
-    <p>
-      <%= link_to "Show this stock", stock %>
-    </p>
-  <% end %>
+  <table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Unit</th>
+      <th>Store</th>
+      <th>Quantity</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @stocks.each do |stock| %>
+      <tr>
+        <td><%= stock.product.name %></td>
+        <td><%= stock.unit.name %></td>
+        <td><%= stock.store.name%></td>
+        <td><%= stock.quantity%></td>
+        <td>
+          <%= link_to "Show this stock", stock %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </div>
 
 <%= link_to "New stock", new_stock_path %>
+
+

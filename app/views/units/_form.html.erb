@@ -13,20 +13,25 @@
 
   <div>
     <%= form.label :code, style: "display: block" %>
-    <%= form.text_field :code %>
+    <%= form.text_field :code, class: "form-control" %>
   </div>
 
   <div>
     <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
 
   <div>
     <%= form.label :unit_type, style: "display: block" %>
-    <%= form.text_field :unit_type %>
+    <%= form.select(
+      :unit_type,
+      [["Select a unit type",nil],["Weight","weight"],["Volume","volume"],["Count","count"]],
+      {},
+      {class:"form-select"}
+      )%>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>

@@ -13,25 +13,43 @@
 
   <div>
     <%= form.label :product_id, style: "display: block" %>
-    <%= form.text_field :product_id %>
+    <% @products= Product.all %>
+    <%= form.select :product_id, {}, class:"form-select form-select-lg mb-3" do %>
+      <option selected> Select a product </option>
+      <% Product.all.each do |product| %>
+        <%= content_tag(:option, product.name, value: product.id) %>
+      <% end %>
+    <% end %>    
   </div>
 
   <div>
     <%= form.label :unit_id, style: "display: block" %>
-    <%= form.text_field :unit_id %>
+    <% @units = Unit.all %>
+    <%= form.select :unit_id, class:"form-select" do %>
+      <option selected> Select a Unit </option>
+      <% @units.each do |unit| %>
+        <%= content_tag(:option, unit.name, value: unit.id) %>
+      <% end %>
+    <% end %>
   </div>
 
   <div>
     <%= form.label :store_id, style: "display: block" %>
-    <%= form.text_field :store_id %>
+    <% @stores = Store.all %>
+    <%= form.select :store_id, class: "form-select form-select-lg mb-3" do%>
+      <option selected> Select a Store </option>
+      <% @stores.each do |store| %>
+        <%= content_tag(:option, store.name, value:store.id) %>
+      <% end %>
+    <% end %>
   </div>
 
   <div>
     <%= form.label :quantity, style: "display: block" %>
-    <%= form.text_field :quantity %>
+    <%= form.text_field :quantity, class:"form-control" %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-success" %>
   </div>
 <% end %>
