@@ -4,6 +4,7 @@ class UnitsController < ApplicationController
   # GET /units or /units.json
   def index
     @units = Unit.all
+    @unit = Unit.new
   end
 
   # GET /units/1 or /units/1.json
@@ -25,7 +26,7 @@ class UnitsController < ApplicationController
 
     respond_to do |format|
       if @unit.save
-        format.html { redirect_to unit_url(@unit), notice: "Unit was successfully created." }
+        format.html { redirect_to units_path, notice: "Unit was successfully created." }
         format.json { render :show, status: :created, location: @unit }
       else
         format.html { render :new, status: :unprocessable_entity }

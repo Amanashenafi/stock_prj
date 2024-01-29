@@ -1,8 +1,16 @@
 <p style="color: green"><%= notice %></p>
+<div class="card col-6">
+  <div class="card-header">
+    <strong> New Unit </strong>
+  </div>
+  <div class="card-body">
+    <%= render "form", unit: @unit %>
+  </div>
+</div>
 
-<h1>Units</h1>
-
-<div id="units">
+<div id="units", class="continer">
+  <br>
+  <h1>Units</h1>
   <table class="table table-bordered table-striped">
     <thead>
       <tr>
@@ -27,4 +35,3 @@
   </table>
 </div>
 
-<%= link_to "New unit", new_unit_path %>
